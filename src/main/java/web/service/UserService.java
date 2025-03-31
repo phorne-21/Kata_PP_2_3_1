@@ -11,7 +11,7 @@ public interface UserService {
 
     public List<User> findAll();
 
-    public void update(User user);
+    public void update(Long id, String username, String email, Integer age);
 
     public void delete(Long id);
 }

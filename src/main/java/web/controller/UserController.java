@@ -46,19 +46,8 @@ public class UserController {
     public String updateUser(@PathVariable("id") Long id,
                              @RequestParam String name,
                              @RequestParam String email,
-                             @RequestParam Integer age)
-    {
-        User user = userService.findById(id);
-        if (name != null) {
-            user.setName(name);
-        }
-        if (email != null) {
-            user.setEmail(email);
-        }
-        if (age != null && age > 0) {
-            user.setAge(age);
-        }
-        userService.update(user);
+                             @RequestParam Integer age) {
+        userService.update(id, name, email, age);
         return "redirect:/users/update/" + id;
     }
 

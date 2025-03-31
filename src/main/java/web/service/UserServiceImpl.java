@@ -38,7 +38,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void update(User user) {
+    public void update(Long id, String name, String email, Integer age) {
+        User user = findById(id);
+        if (name != null) {
+            user.setName(name);
+        }
+        if (email != null) {
+            user.setEmail(email);
+        }
+        if (age != null && age > 0) {
+            user.setAge(age);
+        }
         userDao.update(user);
     }
 
